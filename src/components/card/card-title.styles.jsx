@@ -4,7 +4,7 @@ export const CardTitleText = styled.div`
   height: 50px;
   background-color: #BCAAA4;
   font-size: 1.2rem;
-  font-family: roboto;
+  font-family: 'Pacifico', cursive;
   color: #FFF;
   text-align: center;
   padding .5rem;

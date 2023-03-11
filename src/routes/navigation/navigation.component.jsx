@@ -13,17 +13,17 @@ import { Outlet } from 'react-router-dom';
 
 import { NavBar } from './navigation.styles';
 
-const pages = ['Calculator'];
+const pages = [];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
+    // setAnchorElNav(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+    // setAnchorElNav(null);
   };
 
   return (
@@ -40,8 +40,8 @@ function ResponsiveAppBar() {
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
+                fontFamily: 'Pacifico, cursive',
+                fontWeight: 400,
                 letterSpacing: '.3rem',
                 color: 'inherit',
                 textDecoration: 'none',
@@ -96,8 +96,8 @@ function ResponsiveAppBar() {
                 mr: 2,
                 display: { xs: 'flex', md: 'none' },
                 flexGrow: 1,
-                fontFamily: 'monospace',
-                fontWeight: 700,
+                fontFamily: 'Pacifico, cursive',
+                fontWeight: 400,
                 letterSpacing: '.3rem',
                 color: 'inherit',
                 textDecoration: 'none',

@@ -10,7 +10,7 @@ export const CalcContent = styled(CardContent)`
 `
 
 export const CalcFieldContainer = styled.div`
-  margin: 1rem;
+  margin-bottom: 2rem;
 `
 
 export const CalcEntry = styled(TextField)`
@@ -21,6 +21,8 @@ export const CalcResult = styled.div`
   border: 1px solid #BDBDBD;
   width: 20%;
   height: 20%;
+  display inline;
+  font-family: 'Pacifico', cursive;
   font-size: 2.2rem;
   margin: 0 auto;
   padding: 1rem;

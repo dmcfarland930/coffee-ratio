@@ -41,7 +41,9 @@ const Calculator = () => {
                 type="number" 
                 value={entry} 
                 onChange={handleChange} 
-                label="Amount of Grounds (g)" variant="outlined" 
+                label="Amount of Grounds (g)" 
+                variant="outlined" 
+                margin="dense"
                 />
             </CalcFieldContainer>
             <CalcFieldContainer>
@@ -49,8 +51,15 @@ const Calculator = () => {
                 {calculateRatio(entry)} 
               </ CalcResult>
             </CalcFieldContainer>
-            <Typography>
-              *This calculator uses a Ground to Water ratio of 1:17
+            <Typography
+              sx={{
+                fontFamily: 'Pacifico, cursive',
+                fontWeight: 400,
+                fontSize: '1rem',
+                color: 'inherit',
+              }}
+              >
+              *This calculator uses a default ratio of 1:17
             </Typography>
           </CalcContent>
         </Card>
