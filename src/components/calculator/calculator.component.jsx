@@ -109,7 +109,7 @@ const Calculator = () => {
                 color: 'inherit',
               }}
               >
-              *This calculator uses a default ratio of 1:17
+              *This calculator uses a default ratio of 1:17. A scale is recommended to get an accurate pour.
             </Typography>
           </CalcContent>
         </Card>
