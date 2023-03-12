@@ -13,22 +13,23 @@ import { Outlet } from 'react-router-dom';
 
 import { NavBar } from './navigation.styles';
 
-const pages = [];
+// const pages = ['Coffee to Water', 'Number of Cups'];
+const pages = []
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {
-    // setAnchorElNav(event.currentTarget);
+    setAnchorElNav(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
-    // setAnchorElNav(null);
+    setAnchorElNav(null);
   };
 
   return (
     <Fragment>
-      <NavBar position="static" style={{ background: '#BCAAA4' }}>
+      <NavBar position="static" style={{ background: '#f2ddc3' }}>
         <Container maxWidth="md">
           <Toolbar disableGutters>
             <CoffeeIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

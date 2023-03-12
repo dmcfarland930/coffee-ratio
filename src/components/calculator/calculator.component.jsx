@@ -6,9 +6,10 @@ import {
   CalcContainer, 
   CalcContent, 
   CalcFieldContainer,
-  CalcEntry, 
   CalcResult 
 } from "./calculator.styles";
+
+import { CalcInput } from "./calculator-entry.styles";
 
 const defaulCalcFields = {
   'entry': 0,
@@ -19,40 +20,68 @@ const Calculator = () => {
 
   const [calcFields, setCalcFields] = useState(defaulCalcFields);
   const { entry } = calcFields;
-
+  
   const handleChange = (event) => {
     const {name, value} = event.target;
     setCalcFields({ ...calcFields, [name]: value });
   };
 
   const calculateRatio = (entryVal) => {
-    return `${(entryVal * 17).toString()}g`;
+    return entryVal * 17;
   };
 
   return (
     <Fragment>
       <CalcContainer>
         <Card>
-          <CardTitle titleText="Enter Amount of Grounds (g)" />
-          <CalcContent>
-            <CalcFieldContainer>
-              <CalcEntry 
-                name="entry" 
-                type="number" 
-                value={entry} 
-                onChange={handleChange} 
-                label="Amount of Grounds (g)" 
-                variant="outlined" 
-                margin="dense"
-                />
+          <CardTitle titleText="Coffee to Water Ratio" />
+          <CalcContent>            
+            <Typography
+              gutterBottom={true}
+              sx={{
+                fontFamily: 'Pacifico, cursive',
+                fontWeight: 400,
+                fontSize: '1rem',
+                color: 'inherit',
+              }}
+              >
+              The easiest Coffee to Water ratio calculator there is.
+            </Typography>
+            <CalcFieldContainer>              
+            <Typography
+              sx={{
+                fontFamily: 'Pacifico, cursive',
+                fontWeight: 400,
+                fontSize: '1rem',
+                color: 'inherit',
+              }}>
+              Coffee (g):
+            </Typography>
+            <CalcInput
+              name="entry" 
+              type="number"
+              value={entry} 
+              onChange={handleChange}
+            >
+            </CalcInput>
             </CalcFieldContainer>
             <CalcFieldContainer>
               <CalcResult>
+                <Typography
+                  sx={{
+                    fontFamily: 'Pacifico, cursive',
+                    fontWeight: 400,
+                    fontSize: '1rem',
+                    color: 'inherit',
+                  }}>
+                  Water (g):
+                </Typography>
                 {calculateRatio(entry)} 
               </ CalcResult>
             </CalcFieldContainer>
             <Typography
               sx={{
+                padding: 2,
                 fontFamily: 'Pacifico, cursive',
                 fontWeight: 400,
                 fontSize: '1rem',
