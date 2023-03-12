@@ -29,7 +29,7 @@ function ResponsiveAppBar() {
 
   return (
     <Fragment>
-      <NavBar position="static" style={{ background: '#f2ddc3' }}>
+      <NavBar position="static" style={{ background: '#FFD54F' }}>
         <Container maxWidth="md">
           <Toolbar disableGutters>
             <CoffeeIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

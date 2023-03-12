@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Box, CardContent } from "@mui/material";
 
 export const CalcContainer = styled(Box)`
-
 `
 
 export const CalcContent = styled(CardContent)`
@@ -10,6 +9,7 @@ export const CalcContent = styled(CardContent)`
 `
 
 export const CalcFieldContainer = styled.div`
+  margin: 1rem 0 1rem 0;
 `
 
 export const CalcResult = styled.div`

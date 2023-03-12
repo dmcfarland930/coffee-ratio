@@ -1,5 +1,6 @@
-import { Fragment, useState } from "react";
-import { Card, Typography } from "@mui/material";
+import { useSelector, useDispatch } from "react-redux";
+import { Fragment } from "react";
+import { Card, Divider, Typography } from "@mui/material";
 
 import CardTitle from "../card/card-title.component";
 import { 
@@ -9,25 +10,26 @@ import {
   CalcResult 
 } from "./calculator.styles";
 
-import { CalcInput } from "./calculator-entry.styles";
-
-const defaulCalcFields = {
-  'entry': 0,
-};
-
+import CalculatorUnits from "../calculator-units/calculator-units.component";
+import { CalcInput } from "../calculator-entry/calculator-entry.styles";
 
 const Calculator = () => {
 
-  const [calcFields, setCalcFields] = useState(defaulCalcFields);
-  const { entry } = calcFields;
-  
-  const handleChange = (event) => {
-    const {name, value} = event.target;
-    setCalcFields({ ...calcFields, [name]: value });
-  };
+  const { entry, result } = useSelector(state => state.calculator);
+  const { coffeeUnit, waterUnit } = useSelector(state => state.unit);
 
-  const calculateRatio = (entryVal) => {
-    return entryVal * 17;
+  const dispatch = useDispatch();
+
+  const handleChange = (event) => {
+    const {value} = event.target;
+
+    dispatch({ 
+      type: 'calculator/calculateResult', 
+      payload: {
+        'entry': value,
+        'unit': coffeeUnit
+      }
+    });
   };
 
   return (
@@ -35,35 +37,54 @@ const Calculator = () => {
       <CalcContainer>
         <Card>
           <CardTitle titleText="Coffee to Water Ratio" />
-          <CalcContent>            
-            <Typography
-              gutterBottom={true}
-              sx={{
-                fontFamily: 'Pacifico, cursive',
-                fontWeight: 400,
-                fontSize: '1rem',
-                color: 'inherit',
-              }}
+          <CalcContent>
+            <CalcFieldContainer>
+              <Typography
+                gutterBottom={true}
+                sx={{
+                  fontFamily: 'Pacifico, cursive',
+                  fontWeight: 400,
+                  fontSize: '1rem',
+                  color: 'inherit',
+                }}
+                >
+                The easiest Coffee to Water ratio calculator there is.
+              </Typography>
+            </ CalcFieldContainer>
+            <Divider />
+            <CalcFieldContainer>
+              <Typography 
+                gutterBottom={true}
+                sx={{
+                    fontFamily: 'Pacifico, cursive',
+                    fontWeight: 400,
+                    fontSize: '1rem',
+                    color: 'inherit',
+                  }}>
+                Select unit for 1 cup of pour over coffee.
+              </Typography>
+            </CalcFieldContainer>            
+            <CalcFieldContainer>
+              <CalculatorUnits />
+            </CalcFieldContainer>
+            <Divider />
+            <CalcFieldContainer>        
+              <Typography
+                sx={{
+                  fontFamily: 'Pacifico, cursive',
+                  fontWeight: 400,
+                  fontSize: '1rem',
+                  color: 'inherit',
+                }}>
+                Coffee ({coffeeUnit}):
+              </Typography>
+              <CalcInput
+                name="entry" 
+                type="number"
+                value={entry} 
+                onChange={handleChange}
               >
-              The easiest Coffee to Water ratio calculator there is.
-            </Typography>
-            <CalcFieldContainer>              
-            <Typography
-              sx={{
-                fontFamily: 'Pacifico, cursive',
-                fontWeight: 400,
-                fontSize: '1rem',
-                color: 'inherit',
-              }}>
-              Coffee (g):
-            </Typography>
-            <CalcInput
-              name="entry" 
-              type="number"
-              value={entry} 
-              onChange={handleChange}
-            >
-            </CalcInput>
+              </CalcInput>
             </CalcFieldContainer>
             <CalcFieldContainer>
               <CalcResult>
@@ -74,9 +95,9 @@ const Calculator = () => {
                     fontSize: '1rem',
                     color: 'inherit',
                   }}>
-                  Water (g):
+                  Water ({waterUnit}):
                 </Typography>
-                {calculateRatio(entry)} 
+                {result}
               </ CalcResult>
             </CalcFieldContainer>
             <Typography
