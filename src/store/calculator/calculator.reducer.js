@@ -1,6 +1,6 @@
 const CALCULATOR_INITIAL_STATE = {
-  'entry': 16,
-  'result': 272,
+  'entry': 17,
+  'result': 289,
 };
 
 const calculateResult = (payload) => {
@@ -16,7 +16,7 @@ const calculateResult = (payload) => {
 const convertOneCup = (unit) => {
   switch (unit) {
     case 'g':
-      return {...calculateResult({'entry': 16, 'unit': 'g'})}
+      return {...calculateResult({'entry': 17, 'unit': 'g'})}
     case 'oz':
       return {...calculateResult({'entry': 1.06, 'unit': 'oz'})}
     default:
