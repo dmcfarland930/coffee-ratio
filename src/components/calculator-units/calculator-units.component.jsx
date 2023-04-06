@@ -7,11 +7,11 @@ const UNITS = [
     'unit': 'g',
     'long': 'grams'
   },
-  {
-    'id': 1,
-    'unit': 'oz',
-    'long': 'ounces'
-  },
+  // {
+  //   'id': 1,
+  //   'unit': 'oz',
+  //   'long': 'ounces'
+  // },
 ];
 
 const CalculatorUnits = () => {
